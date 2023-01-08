@@ -1,0 +1,145 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://assets/textures/player_walk.png" type="Texture" id=1]
+[ext_resource path="res://assets/textures/cooking_pot.png" type="Texture" id=2]
+[ext_resource path="res://assets/textures/result_screen.png" type="Texture" id=3]
+[ext_resource path="res://screens/Intro.gd" type="Script" id=4]
+[ext_resource path="res://scenes/PopupText.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/fonts/FT88-Regular.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://assets/textures/player_sad.png" type="Texture" id=7]
+[ext_resource path="res://scenes/FxPlayer.tscn" type="PackedScene" id=8]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 64, 128 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 64, 128 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 1 )
+region = Rect2( 64, 0, 64, 128 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 1 )
+region = Rect2( 128, 0, 64, 128 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 1 )
+region = Rect2( 192, 0, 64, 128 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "sad",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
+"loop": true,
+"name": "walk",
+"speed": 20.0
+} ]
+
+[sub_resource type="DynamicFont" id=6]
+size = 72
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 128
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 6 )
+
+[node name="Intro" type="Node2D"]
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 512, 300 )
+texture = ExtResource( 3 )
+
+[node name="Shade" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0, 0, 0, 0.796078 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+position = Vector2( 394, 476 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 5 )
+animation = "sad"
+playing = true
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 617, 483 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 512, 300 )
+current = true
+
+[node name="PlayerHead" type="Position2D" parent="."]
+position = Vector2( 395, 424 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="PopupText" parent="CanvasLayer/CenterContainer" instance=ExtResource( 5 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 264.0
+margin_right = 1024.0
+margin_bottom = 336.0
+rect_min_size = Vector2( 1024, 72 )
+custom_fonts/normal_font = SubResource( 6 )
+text = "ABCD"
+
+[node name="EEEEEEE" type="RichTextLabel" parent="CanvasLayer/CenterContainer"]
+visible = false
+margin_left = -3488.0
+margin_top = 236.0
+margin_right = 4512.0
+margin_bottom = 364.0
+rect_min_size = Vector2( 8000, 128 )
+custom_fonts/normal_font = SubResource( 11 )
+bbcode_enabled = true
+bbcode_text = "[center][shake level=10]FOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOD!!![/shake][/center]"
+text = "FOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOD!!!"
+scroll_active = false
+
+[node name="FxPlayer" parent="." instance=ExtResource( 8 )]

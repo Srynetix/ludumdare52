@@ -1,0 +1,219 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://assets/textures/blank.png" type="Texture" id=1]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/textures/cloud.png" type="Texture" id=3]
+[ext_resource path="res://scenes/RepeatingSprite.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/PopupText.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/ActionUi.tscn" type="PackedScene" id=6]
+[ext_resource path="res://screens/Game.gd" type="Script" id=7]
+[ext_resource path="res://assets/textures/background.png" type="Texture" id=8]
+[ext_resource path="res://scenes/ScreenLoopingSprite.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/HarvestableRoot.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/ScrollLayer.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/Spawner.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/fonts/FT88-Regular.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://assets/textures/soil.png" type="Texture" id=14]
+[ext_resource path="res://scenes/FxPlayer.tscn" type="PackedScene" id=15]
+[ext_resource path="res://assets/textures/background2.png" type="Texture" id=16]
+[ext_resource path="res://assets/textures/sheep.png" type="Texture" id=17]
+[ext_resource path="res://scenes/Shade.tscn" type="PackedScene" id=18]
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 13 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 28
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 13 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 13 )
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 7 )
+
+[node name="Layers" type="Node2D" parent="."]
+
+[node name="SkyLayer" parent="Layers" instance=ExtResource( 11 )]
+
+[node name="Sky1" type="Sprite" parent="Layers/SkyLayer"]
+self_modulate = Color( 0.4806, 0.712593, 0.89, 1 )
+position = Vector2( 512, 328 )
+scale = Vector2( 1024, 328 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sky2" type="Sprite" parent="Layers/SkyLayer"]
+self_modulate = Color( 0.5162, 0.72802, 0.89, 1 )
+position = Vector2( 512, 82 )
+scale = Vector2( 1024, 164 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Cloud1" parent="Layers/SkyLayer" instance=ExtResource( 9 )]
+position = Vector2( 921, 73 )
+rotation = 0.0830572
+texture = ExtResource( 3 )
+
+[node name="Cloud2" parent="Layers/SkyLayer" instance=ExtResource( 9 )]
+position = Vector2( 162, 146 )
+rotation = -0.0931673
+texture = ExtResource( 3 )
+flip_h = true
+
+[node name="BackgroundLayer" parent="Layers" instance=ExtResource( 11 )]
+
+[node name="Background" parent="Layers/BackgroundLayer" instance=ExtResource( 4 )]
+position = Vector2( 512, 300 )
+texture = ExtResource( 16 )
+
+[node name="Sheep" parent="Layers/BackgroundLayer" instance=ExtResource( 9 )]
+position = Vector2( 135, 308 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 17 )
+
+[node name="Sheep2" parent="Layers/BackgroundLayer" instance=ExtResource( 9 )]
+position = Vector2( 718, 393 )
+texture = ExtResource( 17 )
+
+[node name="Sheep3" parent="Layers/BackgroundLayer" instance=ExtResource( 9 )]
+position = Vector2( 842, 237 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 17 )
+
+[node name="Sheep4" parent="Layers/BackgroundLayer" instance=ExtResource( 9 )]
+position = Vector2( 311, 215 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 17 )
+
+[node name="BackgroundLayer2" parent="Layers" instance=ExtResource( 11 )]
+
+[node name="Background" parent="Layers/BackgroundLayer2" instance=ExtResource( 4 )]
+position = Vector2( 512, 379 )
+texture = ExtResource( 8 )
+
+[node name="Foreground" type="Node2D" parent="Layers"]
+
+[node name="RootItems" type="Node2D" parent="Layers/Foreground"]
+
+[node name="HarvestableRoots" type="Node2D" parent="Layers/Foreground"]
+
+[node name="Grass" type="Sprite" parent="Layers/Foreground"]
+visible = false
+self_modulate = Color( 0.133333, 0.352941, 0.113725, 1 )
+position = Vector2( 512, 496 )
+scale = Vector2( 1024, 8 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Player" parent="Layers" instance=ExtResource( 2 )]
+position = Vector2( 100, 436 )
+
+[node name="Shade" parent="Layers" instance=ExtResource( 18 )]
+
+[node name="Below" parent="Layers" instance=ExtResource( 11 )]
+
+[node name="Soil" parent="Layers/Below" instance=ExtResource( 4 )]
+position = Vector2( 512, 550 )
+texture = ExtResource( 14 )
+
+[node name="RootSpawner" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1800, 500 )
+scene = ExtResource( 10 )
+auto_spawn_wait_time = 3.0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1024.0
+margin_bottom = 600.0
+custom_constants/margin_right = 16
+custom_constants/margin_top = 16
+custom_constants/margin_left = 16
+custom_constants/margin_bottom = 16
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ScoreContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 1008.0
+margin_bottom = 584.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ScoreTitle" type="Label" parent="MarginContainer/ScoreContainer"]
+margin_right = 992.0
+margin_bottom = 33.0
+custom_fonts/font = SubResource( 2 )
+text = "Score"
+align = 1
+valign = 1
+
+[node name="ScoreValue" type="Label" parent="MarginContainer/ScoreContainer"]
+margin_top = 37.0
+margin_right = 992.0
+margin_bottom = 66.0
+custom_fonts/font = SubResource( 3 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PopupText" parent="MarginContainer" instance=ExtResource( 5 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 16.0
+margin_top = 248.0
+margin_right = 1008.0
+margin_bottom = 352.0
+size_flags_vertical = 4
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_text = "[center]Let's find things to put in the cooking pot!
+Hurry up!
+
+[rainbow]Type the right letters![/rainbow][/center]"
+text = "Let's find things to put in the cooking pot!
+Hurry up!
+
+Type the right letters!"
+fit_content_height = true
+__meta__ = {
+"_edit_lock_": true
+}
+autostart = true
+
+[node name="ActionUi" parent="." instance=ExtResource( 6 )]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="FxPlayer" parent="." instance=ExtResource( 15 )]
+volume_db = -20.0
+bus = "FX"

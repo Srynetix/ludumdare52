@@ -8,7 +8,147 @@
 
 config_version=4
 
+_global_script_class_icons={
+"ActionUi": "",
+"FxPlayer": "",
+"GameScreen": "",
+"HarvestableRoot": "",
+"Player": "",
+"PopupText": "",
+"RepeatingSprite": "",
+"RootItem": "",
+"RootItemType": "",
+"ScreenLoopingSprite": "",
+"ScrollLayer": "",
+"Shade": "",
+"Spawner": "",
+"SxArray": "",
+"SxAudioMultiStreamPlayer": "",
+"SxBetterBlur": "",
+"SxBuffer": "",
+"SxClientPeer": "",
+"SxClientRPC": "",
+"SxCmdLineParser": "",
+"SxColor": "",
+"SxContainer": "",
+"SxDebugInfo": "",
+"SxDebugTools": "",
+"SxDoubleTap": "",
+"SxFAButton": "",
+"SxFAFont": "",
+"SxFALabel": "",
+"SxFXCamera": "",
+"SxFXChromaticAberration": "",
+"SxFXDissolve": "",
+"SxFXGrayscale": "",
+"SxFadingRichTextLabel": "",
+"SxFullScreenAcceptDialog": "",
+"SxFullScreenConfirmationDialog": "",
+"SxFullScreenDialog": "",
+"SxFullScreenFileDialog": "",
+"SxGameData": "",
+"SxGlobalAudioFxPlayer": "",
+"SxGlobalMusicPlayer": "",
+"SxInput": "",
+"SxItemList": "",
+"SxJson": "",
+"SxListenServerPeer": "",
+"SxLoadCache": "",
+"SxLog": "",
+"SxLogPanel": "",
+"SxMath": "",
+"SxMotionBlur": "",
+"SxNetwork": "",
+"SxNode": "",
+"SxNodeTracer": "",
+"SxNodeTracerSystem": "",
+"SxNodeTracerUI": "",
+"SxOS": "",
+"SxRPCService": "",
+"SxRand": "",
+"SxSceneRunner": "",
+"SxSceneTransitioner": "",
+"SxServerPeer": "",
+"SxServerRPC": "",
+"SxShader": "",
+"SxShockwave": "",
+"SxSyncBarrier": "",
+"SxSyncInput": "",
+"SxSyncPeerInput": "",
+"SxText": "",
+"SxTileMap": "",
+"SxUI": "",
+"SxVignette": "",
+"SxVirtualButton": "",
+"SxVirtualControls": "",
+"SxVirtualJoystick": ""
+}
 _global_script_classes=[ {
+"base": "Node2D",
+"class": "ActionUi",
+"language": "GDScript",
+"path": "res://scenes/ActionUi.gd"
+}, {
+"base": "AudioStreamPlayer",
+"class": "FxPlayer",
+"language": "GDScript",
+"path": "res://scenes/FxPlayer.gd"
+}, {
+"base": "Node2D",
+"class": "GameScreen",
+"language": "GDScript",
+"path": "res://screens/Game.gd"
+}, {
+"base": "Area2D",
+"class": "HarvestableRoot",
+"language": "GDScript",
+"path": "res://scenes/HarvestableRoot.gd"
+}, {
+"base": "Area2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://scenes/Player.gd"
+}, {
+"base": "RichTextLabel",
+"class": "PopupText",
+"language": "GDScript",
+"path": "res://scenes/PopupText.gd"
+}, {
+"base": "Sprite",
+"class": "RepeatingSprite",
+"language": "GDScript",
+"path": "res://scenes/RepeatingSprite.gd"
+}, {
+"base": "Area2D",
+"class": "RootItem",
+"language": "GDScript",
+"path": "res://scenes/RootItem.gd"
+}, {
+"base": "Reference",
+"class": "RootItemType",
+"language": "GDScript",
+"path": "res://scenes/RootItemType.gd"
+}, {
+"base": "Sprite",
+"class": "ScreenLoopingSprite",
+"language": "GDScript",
+"path": "res://scenes/ScreenLoopingSprite.gd"
+}, {
+"base": "Node2D",
+"class": "ScrollLayer",
+"language": "GDScript",
+"path": "res://scenes/ScrollLayer.gd"
+}, {
+"base": "ColorRect",
+"class": "Shade",
+"language": "GDScript",
+"path": "res://scenes/Shade.gd"
+}, {
+"base": "Node2D",
+"class": "Spawner",
+"language": "GDScript",
+"path": "res://scenes/Spawner.gd"
+}, {
 "base": "Reference",
 "class": "SxArray",
 "language": "GDScript",
@@ -309,77 +449,36 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/sxgd/modules/SxVirtualControls/SxVirtualJoystick.gd"
 } ]
-_global_script_class_icons={
-"SxArray": "",
-"SxAudioMultiStreamPlayer": "",
-"SxBetterBlur": "",
-"SxBuffer": "",
-"SxClientPeer": "",
-"SxClientRPC": "",
-"SxCmdLineParser": "",
-"SxColor": "",
-"SxContainer": "",
-"SxDebugInfo": "",
-"SxDebugTools": "",
-"SxDoubleTap": "",
-"SxFAButton": "",
-"SxFAFont": "",
-"SxFALabel": "",
-"SxFXCamera": "",
-"SxFXChromaticAberration": "",
-"SxFXDissolve": "",
-"SxFXGrayscale": "",
-"SxFadingRichTextLabel": "",
-"SxFullScreenAcceptDialog": "",
-"SxFullScreenConfirmationDialog": "",
-"SxFullScreenDialog": "",
-"SxFullScreenFileDialog": "",
-"SxGameData": "",
-"SxGlobalAudioFxPlayer": "",
-"SxGlobalMusicPlayer": "",
-"SxInput": "",
-"SxItemList": "",
-"SxJson": "",
-"SxListenServerPeer": "",
-"SxLoadCache": "",
-"SxLog": "",
-"SxLogPanel": "",
-"SxMath": "",
-"SxMotionBlur": "",
-"SxNetwork": "",
-"SxNode": "",
-"SxNodeTracer": "",
-"SxNodeTracerSystem": "",
-"SxNodeTracerUI": "",
-"SxOS": "",
-"SxRPCService": "",
-"SxRand": "",
-"SxSceneRunner": "",
-"SxSceneTransitioner": "",
-"SxServerPeer": "",
-"SxServerRPC": "",
-"SxShader": "",
-"SxShockwave": "",
-"SxSyncBarrier": "",
-"SxSyncInput": "",
-"SxSyncPeerInput": "",
-"SxText": "",
-"SxTileMap": "",
-"SxUI": "",
-"SxVignette": "",
-"SxVirtualButton": "",
-"SxVirtualControls": "",
-"SxVirtualJoystick": ""
-}
 
 [application]
 
-config/name="Ludum Dare 52"
-config/icon="res://icon.png"
+config/name="Type-Eat"
+config/description="Help the poor farmer to gather food from his fields, using the powerful keyboard!"
+run/main_scene="res://screens/Boot.tscn"
+config/icon="res://assets/textures/icon.png"
+
+[autoload]
+
+GameData="*res://autoloads/GameData.gd"
+GameGlobalMusicPlayer="*res://autoloads/GameGlobalMusicPlayer.tscn"
+GameSceneTransitioner="*res://autoloads/GameSceneTransitioner.tscn"
+
+[debug]
+
+gdscript/warnings/return_value_discarded=false
+
+[display]
+
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
 
 [editor_plugins]
 
 enabled=PoolStringArray( "res://addons/sxgd/plugin.cfg" )
+
+[engine]
+
+version="3.5.1"
 
 [gui]
 

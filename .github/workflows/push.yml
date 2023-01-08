@@ -1,0 +1,33 @@
+name: Push builds
+
+on:
+  push:
+    branches:
+      - develop
+      - main
+
+jobs:
+  build-web:
+    uses: Srynetix/godot-github-workflows/.github/workflows/build-game-3.5.1.yml@main
+    with:
+      platform: HTML5
+      name: type-eat
+      output_name: index.html
+  build-windows:
+    uses: Srynetix/godot-github-workflows/.github/workflows/build-game-3.5.1.yml@main
+    with:
+      platform: Windows Desktop
+      name: type-eat
+      output_name: TypeEat.exe
+  build-mac:
+    uses: Srynetix/godot-github-workflows/.github/workflows/build-game-3.5.1.yml@main
+    with:
+      platform: Mac OSX
+      name: type-eat
+      output_name: TypeEat.zip
+  build-linux:
+    uses: Srynetix/godot-github-workflows/.github/workflows/build-game-3.5.1.yml@main
+    with:
+      platform: Linux X11
+      name: type-eat
+      output_name: TypeEat.x86_64

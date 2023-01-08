@@ -1,0 +1,162 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://scenes/ScreenLoopingSprite.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Shade.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/RepeatingSprite.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/ScrollLayer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/textures/cloud.png" type="Texture" id=6]
+[ext_resource path="res://assets/textures/blank.png" type="Texture" id=7]
+[ext_resource path="res://assets/textures/background.png" type="Texture" id=8]
+[ext_resource path="res://assets/textures/soil.png" type="Texture" id=9]
+[ext_resource path="res://assets/textures/sheep.png" type="Texture" id=10]
+[ext_resource path="res://assets/textures/background2.png" type="Texture" id=11]
+[ext_resource path="res://assets/fonts/FT88-Regular.ttf" type="DynamicFontData" id=12]
+[ext_resource path="res://scenes/HarvestableRoot.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/textures/cooking_pot.png" type="Texture" id=14]
+[ext_resource path="res://addons/sxgd/nodes/fx/screen-effects/SxVignette/SxVignette.tscn" type="PackedScene" id=15]
+[ext_resource path="res://addons/sxgd/nodes/fx/screen-effects/SxVignette/Vignette.gdshader" type="Shader" id=16]
+[ext_resource path="res://promo/Promo.gd" type="Script" id=17]
+
+[sub_resource type="ShaderMaterial" id=2]
+resource_local_to_scene = true
+shader = ExtResource( 16 )
+shader_param/size = 20.0
+shader_param/ratio = 0.15
+
+[sub_resource type="DynamicFont" id=1]
+size = 96
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 12 )
+
+[node name="Promo" type="Node2D"]
+script = ExtResource( 17 )
+
+[node name="Layers" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="SkyLayer" parent="Layers" instance=ExtResource( 4 )]
+
+[node name="Sky1" type="Sprite" parent="Layers/SkyLayer"]
+self_modulate = Color( 0.4806, 0.712593, 0.89, 1 )
+position = Vector2( 512, 328 )
+scale = Vector2( 1024, 328 )
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sky2" type="Sprite" parent="Layers/SkyLayer"]
+self_modulate = Color( 0.5162, 0.72802, 0.89, 1 )
+position = Vector2( 512, 82 )
+scale = Vector2( 1024, 164 )
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Cloud1" parent="Layers/SkyLayer" instance=ExtResource( 1 )]
+position = Vector2( 921, 73 )
+rotation = 0.0830572
+texture = ExtResource( 6 )
+
+[node name="Cloud2" parent="Layers/SkyLayer" instance=ExtResource( 1 )]
+position = Vector2( 162, 146 )
+rotation = -0.0931673
+texture = ExtResource( 6 )
+flip_h = true
+
+[node name="BackgroundLayer" parent="Layers" instance=ExtResource( 4 )]
+
+[node name="Background" parent="Layers/BackgroundLayer" instance=ExtResource( 3 )]
+position = Vector2( 512, 300 )
+texture = ExtResource( 11 )
+
+[node name="Sheep" parent="Layers/BackgroundLayer" instance=ExtResource( 1 )]
+position = Vector2( 135, 308 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 10 )
+
+[node name="Sheep2" parent="Layers/BackgroundLayer" instance=ExtResource( 1 )]
+position = Vector2( 718, 393 )
+texture = ExtResource( 10 )
+
+[node name="Sheep3" parent="Layers/BackgroundLayer" instance=ExtResource( 1 )]
+position = Vector2( 842, 237 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 10 )
+
+[node name="Sheep4" parent="Layers/BackgroundLayer" instance=ExtResource( 1 )]
+position = Vector2( 311, 215 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 10 )
+
+[node name="BackgroundLayer2" parent="Layers" instance=ExtResource( 4 )]
+
+[node name="Background" parent="Layers/BackgroundLayer2" instance=ExtResource( 3 )]
+position = Vector2( 512, 379 )
+texture = ExtResource( 8 )
+
+[node name="Player" parent="Layers" instance=ExtResource( 5 )]
+position = Vector2( 100, 436 )
+
+[node name="Shade" parent="Layers" instance=ExtResource( 2 )]
+color = Color( 0.0784314, 0.0666667, 0.231373, 0.435294 )
+
+[node name="Below" parent="Layers" instance=ExtResource( 4 )]
+
+[node name="Soil" parent="Layers/Below" instance=ExtResource( 3 )]
+position = Vector2( 512, 550 )
+texture = ExtResource( 9 )
+
+[node name="HarvestableRoot" parent="." instance=ExtResource( 13 )]
+position = Vector2( 855, 500 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 516, 432 )
+scale = Vector2( 1.07422, 1.09766 )
+texture = ExtResource( 14 )
+
+[node name="SxVignette" parent="." instance=ExtResource( 15 )]
+material = SubResource( 2 )
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 1024.0
+margin_bottom = 600.0
+__meta__ = {
+"_edit_lock_": true
+}
+vignette_size = 20.0
+vignette_ratio = 0.15
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1024.0
+margin_bottom = 600.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_top = 250.0
+margin_right = 1024.0
+margin_bottom = 350.0
+
+[node name="Title" type="RichTextLabel" parent="CenterContainer/VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 1024, 100 )
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center][shake level=10][color=#880088]Type[/color][/shake][shake level=10]-[/shake][shake level=10][color=green]Eat[/color][/shake][/center]"
+text = "Type-Eat"
+scroll_active = false
+__meta__ = {
+"_edit_lock_": true
+}

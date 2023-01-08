@@ -26,7 +26,7 @@ It's quite easy at first, but *can be challenging after a while*, especially whe
 And yes, **don't miss**. Miss a letter and *you have to restart from the beginning*! How fun!
 
 After each item fetched from the ground, the game goes **faster**.  
-Each **10** items, **a new letter is added** to the word you need to type.
+Every **10** items, **a new letter is added** to the word you need to type.
 
 You wanna win and beat the highscore?  
 Well, if you can reach the **first** of the **7 letter** words you should be good. :wink:

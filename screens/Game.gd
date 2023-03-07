@@ -54,8 +54,8 @@ func _ready() -> void:
     _background_tween.tween_property(_background_layer2.get_node("Background"), "position:y", -20.0, 2.0).as_relative().set_trans(Tween.TRANS_SINE)
 
     GameGlobalMusicPlayer.play_stream(TRACK_1)
-    GameGlobalMusicPlayer.fade_in()
-    GameGlobalMusicPlayer.pitch_scale = 1.0
+    GameGlobalMusicPlayer.fade_in_on_voice(0)
+    GameGlobalMusicPlayer.get_voice(0).pitch_scale = 1.0
 
     _player.walk()
 
@@ -89,11 +89,6 @@ func _start_new_round():
     GameData.set_round(_word_letter_count)
 
     _shade.update_round_animate(_word_letter_count)
-
-    # FIXME: Keep in case
-    # var coef = min(_word_letter_count - 1, 5) / 5.0
-    # var target_tempo = 1 - (coef * 0.1)
-    # GameGlobalMusicPlayer.pitch_scale = target_tempo
 
 func _validate_kick() -> void:
     _stop_game()
@@ -146,8 +141,9 @@ func _game_over() -> void:
     _fx_player.play_fx(FxPlayer.FxEnum.Fall)
 
     var tween = get_tree().create_tween()
-    tween.tween_property(GameGlobalMusicPlayer, "pitch_scale", 0.5, 0.75)
-    tween.tween_callback(GameGlobalMusicPlayer, "stop")
+    var voice = GameGlobalMusicPlayer.get_voice(0)
+    tween.tween_property(voice, "pitch_scale", 0.5, 0.75)
+    tween.tween_callback(voice, "stop")
 
     yield(get_tree().create_timer(2), "timeout")
     get_tree().change_scene("res://screens/Results.tscn")

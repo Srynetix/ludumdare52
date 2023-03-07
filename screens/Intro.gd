@@ -60,7 +60,7 @@ func _ready() -> void:
     tween6.tween_callback(self, "_boom")
     yield(tween6, "finished")
 
-    GameGlobalMusicPlayer.fade_out(0.25)
+    GameGlobalMusicPlayer.fade_out_on_voice(0, 0.25)
     GameData.set_intro_already_seen(true)
     GameSceneTransitioner.fade_to_scene_path("res://screens/Game.tscn")
     

@@ -6,7 +6,7 @@
 [ext_resource path="res://assets/fonts/FT88-Regular.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://screens/Title.gd" type="Script" id=5]
 [ext_resource path="res://assets/3rd/ludumdare.png" type="Texture" id=6]
-[ext_resource path="res://addons/sxgd/nodes/ui/SxFullScreenConfirmationDialog/SxFullScreenConfirmationDialog.tscn" type="PackedScene" id=7]
+[ext_resource path="res://addons/sxgd/nodes/ui/SxFullScreenConfirmationDialog.gd" type="Script" id=7]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
@@ -100,7 +100,7 @@ __meta__ = {
 position = Vector2( 394, 476 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 5 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="Sprite2" type="Sprite" parent="."]
@@ -214,5 +214,11 @@ text = "Press F10 to clear game data"
 align = 1
 valign = 1
 
-[node name="EraseDataDialog" parent="." instance=ExtResource( 7 )]
+[node name="EraseDataDialog" type="Panel" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 7 )
+title = ""
+show_title = false
 message = "Are you sure you want to clear your data?"
